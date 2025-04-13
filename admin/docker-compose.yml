@@ -8,14 +8,22 @@ services:
       - "8000:8000"
     volumes:
       - .:/app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: myuser
+      DB_PASSWORD: mypassword
+      DB_NAME: admin
+
   db:
     image: mysql
     restart: always
     environment:
       MYSQL_DATABASE: admin
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_USER: root
-      MYSQL_PASSWORD: root
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
     ports:
       - "33066:3306"
     volumes:

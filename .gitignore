@@ -116,3 +116,4 @@ docker-compose.override.yml
 # Others
 *.sqlite3
 *.tmp
+db_data
